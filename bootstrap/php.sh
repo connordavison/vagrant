@@ -8,7 +8,7 @@ PHP_TIMEZONE="UTC"
 add-apt-repository ppa:ondrej/php5
 apt-get -y update
 apt-get install -y php5-cli php5-curl php5-mcrypt php5-gd php-pear php5-xdebug \
-        php5-intl php5-mysql
+        php5-intl php5-mysql php5-sqlite
 
 # Tools
 # Composer -  dependency management
