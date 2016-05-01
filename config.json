@@ -1,11 +1,16 @@
 {
     "synced_folders": [
-        { "host": "public/", "guest": "/home/vagrant/public" },
-        { "host": "~/.ssh/",  "guest": "/root/.ssh" }
+        {
+            "host": "public/",
+            "guest": "/home/vagrant/public"
+        },
+        {
+            "host": "~/.ssh/",
+            "guest": "/root/.ssh"
+        }
     ],
     "forwarded_ports": [
         { "host": 80,   "guest": 8000 },
         { "host": 3306, "guest": 3306 },
-        { "host": 4567, "guest": 80 }
     ]
 }
