@@ -1,20 +1,16 @@
 #!/usr/bin/env bash
-
-echo '+------------------+'
-echo '| Installing MySQL |'
-echo '+------------------+'
+set -v
+# +------------------+
+# | Installing MySQL |
+# +------------------+
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password'
 apt-get -y update
 apt-get install -y mysql-server
 
-echo '+-------------------------------------+'
-echo '| Configuring MySQL user and database |'
-echo '+-------------------------------------+'
-if [ "$DATABASE_NAME" != "" ]; then
-    echo "CREATE DATABASE IF NOT EXISTS ${DATABASE_NAME}" | mysql -uroot
-fi
-
+# +------------------------+
+# | Configuring MySQL user |
+# +------------------------+
 # Edit my.cnf to unbind localhost
 if [ "$DATABASE_ROOT_HOST" != "localhost" ]; then
     sed "s/bind-address\([[:space:]]*\)=\([[:space:]]*\)127.0.0.1/bind-address\1=\20.0.0.0/g" /etc/mysql/my.cnf \

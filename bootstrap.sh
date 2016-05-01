@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
+set -v
 
-echo '+-------------------------+'
-echo '| Obtaining configuration |'
-echo '+-------------------------+'
+export DEBIAN_FRONTEND=noninteractive
+
+# +-------------------------+
+# | Obtaining configuration |
+# +-------------------------+
 source /vagrant/config.sh
 
-echo '+-------------------------------+'
-echo '| Installing essential packages |'
-echo '+-------------------------------+'
+# +-------------------------------+
+# | Installing essential packages |
+# +-------------------------------+
 apt-get -y update
 apt-get install -y build-essential git-core curl python-software-properties
 
