@@ -3,11 +3,6 @@ set -v
 
 export DEBIAN_FRONTEND=noninteractive
 
-# +-------------------------+
-# | Obtaining configuration |
-# +-------------------------+
-source /vagrant/config.sh
-
 # +-------------------------------+
 # | Installing essential packages |
 # +-------------------------------+
