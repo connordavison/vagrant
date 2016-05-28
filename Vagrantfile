@@ -2,6 +2,8 @@ require 'json'
 
 if File.exists? './config.json'
   settings = JSON.parse(File.read('./config.json'))
+else
+  raise "Missing 'config.json'."
 end
 
 VAGRANTFILE_API_VERSION = "2"
@@ -15,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |v|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--memory", 1024]
-    v.customize ["modifyvm", :id, "--name", "PHP Vagrantbox"]
+    v.customize ["modifyvm", :id, "--name", "General-purpose Vagrantbox"]
   end
   
   # Run provisions
