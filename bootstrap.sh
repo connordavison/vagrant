@@ -6,8 +6,8 @@ export DEBIAN_FRONTEND=noninteractive
 # +-------------------------------+
 # | Installing essential packages |
 # +-------------------------------+
-apt-get -y update
-apt-get install -y build-essential git-core curl python-software-properties \
+apt-get -qq -y update
+apt-get -qq install -y build-essential git-core curl python-software-properties \
         unzip
 
 source /vagrant/bootstrap/node.sh

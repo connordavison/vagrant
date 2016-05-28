@@ -5,8 +5,8 @@ set -v
 # +------------------+
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password'
-apt-get -y update
-apt-get install -y mysql-server
+apt-get -qq -y update
+apt-get -qq install -y mysql-server
 
 # +------------------------+
 # | Configuring MySQL user |

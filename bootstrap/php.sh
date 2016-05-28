@@ -6,8 +6,8 @@ set -v
 PHP_TIMEZONE="UTC"
 
 add-apt-repository ppa:ondrej/php
-apt-get -y update
-apt-get install -y php5.6 php5.6-cli php5.6-curl php5.6-mcrypt php5.6-gd \
+apt-get -qq -y update
+apt-get -qq install -y php5.6 php5.6-cli php5.6-curl php5.6-mcrypt php5.6-gd \
         php-pear php5.6-xdebug php5.6-intl php5.6-mysql php5.6-sqlite \
         php5.6-dom
 
