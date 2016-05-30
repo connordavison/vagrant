@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -v
+source /vagrant/bootstrap/common.sh
+
 # +------------------+
 # | Installing MySQL |
 # +------------------+

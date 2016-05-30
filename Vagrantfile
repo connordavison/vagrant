@@ -18,10 +18,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--memory", 1024]
     v.customize ["modifyvm", :id, "--name", "General-purpose Vagrantbox"]
+
+    # Enable symlinks
+    if settings['symlinks']
+      v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1" ]
+    end
   end
   
   # Run provisions
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  config.vm.provision :shell, path: "bootstrap.sh"
+
+  settings['provisions'].each do |p|
+    provision_path = './bootstrap/' + p + '.sh'
+
+    if File.exists? provision_path
+      config.vm.provision :shell, path: provision_path
+    end
+  end
   
   # Sync folders
   settings['synced_folders'].each do |m|

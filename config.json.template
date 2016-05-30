@@ -1,4 +1,13 @@
 {
+    "forwarded_ports": [
+        { "host": 80,   "guest": 8000 },
+        { "host": 3306, "guest": 3306 }
+    ],
+    "provisions": [
+        "php",
+        "mysql",
+        "node"
+    ],
     "synced_folders": [
         {
             "host": "public/",
@@ -9,8 +18,5 @@
             "guest": "/root/.ssh"
         }
     ],
-    "forwarded_ports": [
-        { "host": 80,   "guest": 8000 },
-        { "host": 3306, "guest": 3306 }
-    ]
+    "symlinks": true
 }
