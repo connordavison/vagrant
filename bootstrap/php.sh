@@ -17,10 +17,15 @@ sed -i "s/;date.timezone =/date.timezone = Europe\/London/" /etc/php/5.6/apache2
 sed -i "s/;date.timezone =/date.timezone = Europe\/London/" /etc/php/5.6/cli/php.ini
 
 # Tools
-# Composer -  dependency management
+# Composer - dependency management
 wget -nv getcomposer.org/composer.phar
 mv composer.phar /usr/local/bin/composer
 chmod a+x /usr/local/bin/composer
+
+# Composer - proc_open() patch
+/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+/sbin/mkswap /var/swap.1
+/sbin/swapon /var/swap.1
 
 # Update Composer home & PATH
 echo 'export COMPOSER_HOME=~/.composer' >> ~/.bashrc
